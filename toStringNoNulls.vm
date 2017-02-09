@@ -1,0 +1,17 @@
+public java.lang.String toString() {
+#if ( $members.size() > 0 )
+    #set ( $i = 0 )
+    String toString = "$classname{";
+    
+    #foreach( $member in $members )
+        toString += ($member.name != null ? "$member.name=" + $member.name + " " : "");
+        #set ( $i = $i + 1 )
+    #end
+    
+    toString += "}";
+    
+    return toString;
+#else
+return "$classname{}";
+#end
+}
